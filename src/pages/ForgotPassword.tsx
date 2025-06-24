@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Mail } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import Logo from '../components/ui/Logo';
@@ -10,6 +10,7 @@ export default function ForgotPassword() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const { resetPassword, error, clearError, loading } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +28,11 @@ export default function ForgotPassword() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
   };
 
   if (isSubmitted) {
@@ -69,7 +75,7 @@ export default function ForgotPassword() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <Logo />
+            <Logo clickable onClick={handleLogoClick} />
           </div>
           <h1 className="text-2xl font-serif font-bold text-neutral-900 mb-2">
             Reset your password

@@ -49,6 +49,11 @@ export default function SignUp() {
     }
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   if (successMessage) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center px-4">
@@ -102,7 +107,7 @@ export default function SignUp() {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <Logo />
+              <Logo clickable onClick={handleLogoClick} />
             </div>
             <h1 className="text-2xl font-serif font-bold text-neutral-900 mb-2">
               Create your account

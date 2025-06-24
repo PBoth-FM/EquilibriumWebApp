@@ -34,6 +34,11 @@ export default function SignIn() {
     }
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="min-h-screen bg-white flex">
       {/* Left side - Form */}
@@ -42,7 +47,7 @@ export default function SignIn() {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <Logo />
+              <Logo clickable onClick={handleLogoClick} />
             </div>
             <h1 className="text-2xl font-serif font-bold text-neutral-900 mb-2">
               Welcome back
