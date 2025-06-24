@@ -21,6 +21,65 @@ export default function Header() {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Smart navigation helper function
+  const getNavigationProps = (target: string) => {
+    const currentPath = location.pathname;
+    
+    switch (target) {
+      case 'how-it-works':
+        if (currentPath === '/') {
+          return { href: '#how-it-works', isAnchor: true };
+        } else {
+          return { to: '/#how-it-works', isAnchor: false };
+        }
+      case 'testimonials':
+        if (currentPath === '/') {
+          return { href: '#testimonials', isAnchor: true };
+        } else {
+          return { to: '/#testimonials', isAnchor: false };
+        }
+      default:
+        return { href: target, isAnchor: true };
+    }
+  };
+
+  // Helper component for smart navigation links
+  const SmartNavLink = ({ 
+    target, 
+    children, 
+    className, 
+    onClick 
+  }: { 
+    target: string; 
+    children: React.ReactNode; 
+    className: string;
+    onClick?: () => void;
+  }) => {
+    const props = getNavigationProps(target);
+    
+    if (props.isAnchor) {
+      return (
+        <a 
+          href={props.href}
+          className={className}
+          onClick={onClick}
+        >
+          {children}
+        </a>
+      );
+    } else {
+      return (
+        <Link 
+          to={props.to!}
+          className={className}
+          onClick={onClick}
+        >
+          {children}
+        </Link>
+      );
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,24 +94,24 @@ export default function Header() {
             {!user ? (
               // Landing page navigation
               <>
-                <a 
-                  href="#how-it-works" 
+                <SmartNavLink
+                  target="how-it-works"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
                 >
                   How It Works
-                </a>
+                </SmartNavLink>
                 <Link
                   to="/learn"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
                 >
                   Learn
                 </Link>
-                <a 
-                  href="#testimonials" 
+                <SmartNavLink
+                  target="testimonials"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
                 >
                   Reviews
-                </a>
+                </SmartNavLink>
                 <Link
                   to="/signin"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
@@ -99,6 +158,19 @@ export default function Header() {
                 >
                   Progress
                 </Link>
+                {/* Smart navigation for authenticated users */}
+                <SmartNavLink
+                  target="how-it-works"
+                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
+                >
+                  How It Works
+                </SmartNavLink>
+                <SmartNavLink
+                  target="testimonials"
+                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
+                >
+                  Reviews
+                </SmartNavLink>
                 <button
                   onClick={handleSignOut}
                   className="flex items-center text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
@@ -126,13 +198,13 @@ export default function Header() {
               {!user ? (
                 // Landing page mobile navigation
                 <>
-                  <a 
-                    href="#how-it-works" 
-                    onClick={() => setIsMenuOpen(false)}
+                  <SmartNavLink
+                    target="how-it-works"
                     className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     How It Works
-                  </a>
+                  </SmartNavLink>
                   <Link
                     to="/learn"
                     onClick={() => setIsMenuOpen(false)}
@@ -140,13 +212,13 @@ export default function Header() {
                   >
                     Learn
                   </Link>
-                  <a 
-                    href="#testimonials" 
-                    onClick={() => setIsMenuOpen(false)}
+                  <SmartNavLink
+                    target="testimonials"
                     className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     Reviews
-                  </a>
+                  </SmartNavLink>
                   <Link
                     to="/signin"
                     onClick={() => setIsMenuOpen(false)}
@@ -198,6 +270,21 @@ export default function Header() {
                   >
                     Progress
                   </Link>
+                  {/* Smart navigation for authenticated users in mobile */}
+                  <SmartNavLink
+                    target="how-it-works"
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    How It Works
+                  </SmartNavLink>
+                  <SmartNavLink
+                    target="testimonials"
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Reviews
+                  </SmartNavLink>
                   <button
                     onClick={() => {
                       handleSignOut();
