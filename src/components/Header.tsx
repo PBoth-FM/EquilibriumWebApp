@@ -21,7 +21,15 @@ export default function Header() {
 
   const isActive = (path: string) => location.pathname === path;
 
-  // Smart navigation helper function
+  // Handle Learn navigation with forced top scroll
+  const handleLearnNavigation = () => {
+    navigate('/learn', { replace: true });
+    // Force immediate scroll to top and clear any URL fragments
+    window.scrollTo(0, 0);
+    window.location.hash = '';
+  };
+
+  // Smart navigation helper function for anchor links
   const getNavigationProps = (target: string) => {
     const currentPath = location.pathname;
     
@@ -100,12 +108,12 @@ export default function Header() {
                 >
                   How It Works
                 </SmartNavLink>
-                <Link
-                  to="/learn"
+                <button
+                  onClick={handleLearnNavigation}
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
                 >
                   Learn
-                </Link>
+                </button>
                 <SmartNavLink
                   target="testimonials"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
@@ -138,8 +146,8 @@ export default function Header() {
                 >
                   Dashboard
                 </Link>
-                <Link
-                  to="/learn"
+                <button
+                  onClick={handleLearnNavigation}
                   className={`font-medium transition-colors ${
                     isActive('/learn') 
                       ? 'text-primary-violet' 
@@ -147,7 +155,7 @@ export default function Header() {
                   }`}
                 >
                   Learn
-                </Link>
+                </button>
                 <Link
                   to="/progress"
                   className={`font-medium transition-colors ${
@@ -158,19 +166,6 @@ export default function Header() {
                 >
                   Progress
                 </Link>
-                {/* Smart navigation for authenticated users */}
-                <SmartNavLink
-                  target="how-it-works"
-                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
-                >
-                  How It Works
-                </SmartNavLink>
-                <SmartNavLink
-                  target="testimonials"
-                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
-                >
-                  Reviews
-                </SmartNavLink>
                 <button
                   onClick={handleSignOut}
                   className="flex items-center text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
@@ -205,13 +200,15 @@ export default function Header() {
                   >
                     How It Works
                   </SmartNavLink>
-                  <Link
-                    to="/learn"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                  <button
+                    onClick={() => {
+                      handleLearnNavigation();
+                      setIsMenuOpen(false);
+                    }}
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors text-left px-2 py-1"
                   >
                     Learn
-                  </Link>
+                  </button>
                   <SmartNavLink
                     target="testimonials"
                     className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
@@ -248,17 +245,19 @@ export default function Header() {
                   >
                     Dashboard
                   </Link>
-                  <Link
-                    to="/learn"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`font-medium transition-colors px-2 py-1 ${
+                  <button
+                    onClick={() => {
+                      handleLearnNavigation();
+                      setIsMenuOpen(false);
+                    }}
+                    className={`font-medium transition-colors text-left px-2 py-1 ${
                       isActive('/learn') 
                         ? 'text-primary-violet' 
                         : 'text-neutral-600 hover:text-neutral-900'
                     }`}
                   >
                     Learn
-                  </Link>
+                  </button>
                   <Link
                     to="/progress"
                     onClick={() => setIsMenuOpen(false)}
@@ -270,21 +269,6 @@ export default function Header() {
                   >
                     Progress
                   </Link>
-                  {/* Smart navigation for authenticated users in mobile */}
-                  <SmartNavLink
-                    target="how-it-works"
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    How It Works
-                  </SmartNavLink>
-                  <SmartNavLink
-                    target="testimonials"
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Reviews
-                  </SmartNavLink>
                   <button
                     onClick={() => {
                       handleSignOut();
