@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fix anchor link scroll position to account for fixed header */
+html {
+  scroll-padding-top: 5rem; /* 80px - slightly more than header height (64px) for better spacing */
+}
+
+/* Smooth scrolling for better user experience */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
