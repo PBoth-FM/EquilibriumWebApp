@@ -29,6 +29,30 @@ export default function Header() {
     window.location.hash = '';
   };
 
+  // Enhanced cross-page anchor navigation
+  const handleCrossPageAnchor = (targetSection: string) => {
+    const currentPath = location.pathname;
+    
+    if (currentPath === '/') {
+      // Already on home page - just scroll to section
+      const element = document.querySelector(`#${targetSection}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page first, then scroll to section
+      navigate('/');
+      
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.querySelector(`#${targetSection}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); // Small delay to ensure DOM is ready
+    }
+  };
+
   // Smart navigation helper function for anchor links
   const getNavigationProps = (target: string) => {
     const currentPath = location.pathname;
@@ -38,13 +62,13 @@ export default function Header() {
         if (currentPath === '/') {
           return { href: '#how-it-works', isAnchor: true };
         } else {
-          return { to: '/#how-it-works', isAnchor: false };
+          return { action: () => handleCrossPageAnchor('how-it-works'), isProgrammatic: true };
         }
       case 'testimonials':
         if (currentPath === '/') {
           return { href: '#testimonials', isAnchor: true };
         } else {
-          return { to: '/#testimonials', isAnchor: false };
+          return { action: () => handleCrossPageAnchor('testimonials'), isProgrammatic: true };
         }
       default:
         return { href: target, isAnchor: true };
@@ -74,6 +98,18 @@ export default function Header() {
         >
           {children}
         </a>
+      );
+    } else if (props.isProgrammatic) {
+      return (
+        <button
+          onClick={() => {
+            props.action();
+            onClick?.();
+          }}
+          className={className}
+        >
+          {children}
+        </button>
       );
     } else {
       return (
@@ -195,7 +231,7 @@ export default function Header() {
                 <>
                   <SmartNavLink
                     target="how-it-works"
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1 text-left"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     How It Works
@@ -211,7 +247,7 @@ export default function Header() {
                   </button>
                   <SmartNavLink
                     target="testimonials"
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1 text-left"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Reviews
