@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
+import { analytics } from './lib/firebase';
 
 // Pages
 import LandingPage from './pages/LandingPage';
@@ -19,6 +20,11 @@ function App() {
 
   useEffect(() => {
     initialize();
+    
+    // Initialize Firebase Analytics (automatically tracks page views)
+    if (analytics) {
+      console.log('Firebase Analytics initialized');
+    }
   }, [initialize]);
 
   return (
