@@ -40,20 +40,6 @@ export default function PrivacyPolicy() {
               <p className="text-neutral-700 leading-relaxed mb-6">
                 Equilibrium ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our biofeedback meditation app and related services.
               </p>
-              <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-100">
-                <h3 className="text-xl font-serif font-semibold text-neutral-900 mb-4">Contact Information</h3>
-                <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-primary-violet mr-3" />
-                  <span className="text-neutral-700">Email: </span>
-                  <a 
-                    href="mailto:privacy@equilibrium.app"
-                    className="text-primary-violet hover:text-primary-magenta ml-2 font-medium transition-colors"
-                  >
-                    privacy@equilibrium.app
-                  </a>
-                </div>
-                <p className="text-neutral-600 text-sm mt-2">For all privacy-related questions and requests</p>
-              </div>
             </section>
 
             {/* Information We Collect */}
