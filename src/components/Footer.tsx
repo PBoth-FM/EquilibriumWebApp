@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Twitter, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Logo from './ui/Logo';
 
 export default function Footer() {
@@ -66,7 +67,7 @@ export default function Footer() {
             © 2025 Equilibrium. All rights reserved.
           </div>
           <div className="flex items-center space-x-6 text-neutral-400 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
