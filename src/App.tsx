@@ -15,6 +15,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // Components
 import ProtectedRoute from './components/ui/ProtectedRoute';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 function App() {
   const { initialize } = useAuthStore();
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<SignIn />} />

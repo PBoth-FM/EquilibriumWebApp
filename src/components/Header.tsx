@@ -21,15 +21,12 @@ export default function Header() {
 
   const isActive = (path: string) => location.pathname === path;
 
-  // Handle Learn navigation with forced top scroll
+  // Handle Learn navigation with instant scroll
   const handleLearnNavigation = () => {
     navigate('/learn', { replace: true });
-    // Force immediate scroll to top and clear any URL fragments
-    window.scrollTo(0, 0);
-    window.location.hash = '';
   };
 
-  // Enhanced cross-page anchor navigation
+  // Enhanced cross-page anchor navigation with instant scroll
   const handleCrossPageAnchor = (targetSection: string) => {
     const currentPath = location.pathname;
     
@@ -43,13 +40,13 @@ export default function Header() {
       // Navigate to home page first, then scroll to section
       navigate('/');
       
-      // Wait for navigation to complete, then scroll
+      // Wait for navigation to complete, then scroll with instant behavior
       setTimeout(() => {
         const element = document.querySelector(`#${targetSection}`);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'instant' });
         }
-      }, 100); // Small delay to ensure DOM is ready
+      }, 50); // Reduced delay for faster response
     }
   };
 

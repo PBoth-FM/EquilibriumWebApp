@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { 
@@ -18,23 +17,6 @@ import {
 } from 'lucide-react';
 
 export default function Learn() {
-  const location = useLocation();
-
-  // Scroll to top when page loads without a fragment, or handle fragments
-  useEffect(() => {
-    if (!location.hash) {
-      // No fragment - scroll to top immediately
-      window.scrollTo(0, 0);
-    } else {
-      // There's a fragment - let the browser handle scrolling to it
-      // This ensures smooth experience when coming from Hero badge
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'instant' });
-      }
-    }
-  }, [location.hash]);
-
   return (
     <div className="min-h-screen bg-white">
       <Header />
