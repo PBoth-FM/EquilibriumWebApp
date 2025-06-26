@@ -267,22 +267,19 @@ export default function PrivacyPolicy() {
             {/* Contact Us */}
             <section className="mb-12">
               <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-6">Contact Us</h2>
-              <div className="bg-gradient-primary p-8 rounded-2xl text-white">
-                <h3 className="text-xl font-serif font-semibold mb-4">Get in Touch</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 mr-3" />
-                    <span>Privacy Officer: </span>
-                    <a 
-                      href="mailto:privacy@equilibrium.app"
-                      className="ml-2 font-medium hover:text-white/80 transition-colors underline"
-                    >
-                      privacy@equilibrium.app
-                    </a>
-                  </div>
-                  <p className="text-white/90 text-sm">Response Time: We respond to privacy inquiries within 7 business days.</p>
-                  <p className="text-white/90 text-sm">Support: For technical support unrelated to privacy, use the in-app contact feature.</p>
+              
+              <div className="space-y-4 text-neutral-700">
+                <div className="flex items-center">
+                  <Mail className="w-5 h-5 mr-3 text-neutral-600" />
+                  <a 
+                    href="mailto:privacy@equilibrium.app"
+                    className="font-medium text-primary-violet hover:text-primary-magenta transition-colors underline"
+                  >
+                    privacy@equilibrium.app
+                  </a>
                 </div>
+                <p className="text-neutral-600">Response Time: We respond to privacy inquiries within 7 business days.</p>
+                <p className="text-neutral-600">Support: For technical support unrelated to privacy, use the in-app contact feature.</p>
               </div>
 
               <div className="mt-8">
