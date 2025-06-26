@@ -134,7 +134,7 @@ export default function Learn() {
 
             <div className="prose prose-lg max-w-none text-neutral-700 leading-relaxed mb-12">
               <p>
-                Our breath training approach isn't new-age wellness - it's backed by over three decades of peer-reviewed research from institutions like Stanford University, the HeartMath Institute, and the U.S. Military.
+                Our breath training approach isn't new-age wellness - it's backed by over three decades of peer-reviewed research from institutions like Stanford University, Harvard Medical School, and the U.S. Military.
               </p>
             </div>
 
@@ -308,7 +308,7 @@ export default function Learn() {
                 "Optimal heart rhythms, achieved through breath training, create a cascade of neural, hormonal, and biochemical events that enhance cognitive function and emotional stability."
               </p>
               <p className="text-white/70 text-sm mt-4">
-                — Institute of HeartMath Research Center
+                — Harvard Medical School Research Center
               </p>
             </div>
           </section>
