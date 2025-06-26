@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-6 text-neutral-400 text-sm">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

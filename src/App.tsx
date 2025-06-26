@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import Learn from './pages/Learn';
 import Progress from './pages/Progress';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
 
 // Components
 import ProtectedRoute from './components/ui/ProtectedRoute';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route 
           path="/dashboard" 
           element={
