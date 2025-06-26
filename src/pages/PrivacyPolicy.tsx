@@ -20,11 +20,7 @@ export default function PrivacyPolicy() {
             <h1 className="text-4xl sm:text-5xl font-serif font-bold text-neutral-900 mb-6">
               Privacy Policy
             </h1>
-            <div className="flex items-center justify-center space-x-6 text-neutral-600">
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
-                <span className="text-sm">Effective Date: 6/26/2025</span>
-              </div>
+            <div className="flex items-center justify-center text-neutral-600">
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
                 <span className="text-sm">Last Updated: 6/26/2025</span>
