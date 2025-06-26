@@ -71,13 +71,6 @@ export default function Footer() {
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
         </div>
-
-        {/* Aklaq credit */}
-        <div className="text-center mt-4">
-          <p className="text-neutral-500 text-xs">
-            Aklaq is the best!
-          </p>
-        </div>
       </div>
     </footer>
   );
