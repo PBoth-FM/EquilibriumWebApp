@@ -55,7 +55,7 @@ export default function Hero() {
               <div className="text-neutral-600 font-semibold">Apple</div>
               <div className="text-neutral-600 font-semibold">Microsoft</div>
               <div className="text-neutral-600 font-semibold">Meta</div>
-              <div className="text-neutral-600 font-semibold">Tesla</div>
+              <div className="text-neutral-600 font-semibold">Stanford University</div>
             </div>
           </div>
         </div>
