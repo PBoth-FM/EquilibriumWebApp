@@ -199,16 +199,147 @@ The application tracks several key performance indicators:
 
 ## 🚀 Deployment
 
-### Recommended Platforms
-- **Netlify** (current setup with `netlify.toml`)
-- **Vercel** (excellent React/Vite support)
-- **Firebase Hosting** (if using Firebase features)
+This project is configured for deployment on **Firebase Hosting** with integrated Firebase Analytics.
 
-### Environment Variables
-Ensure all production environment variables are properly configured:
-- Supabase URL and keys
-- Firebase configuration
-- Analytics tracking IDs
+### Firebase Hosting Setup
+
+#### Prerequisites
+- Firebase CLI installed: `npm install -g firebase-tools`
+- Firebase project created at [Firebase Console](https://console.firebase.google.com)
+- Authenticated with Firebase: `firebase login`
+
+#### Initial Setup
+
+1. **Initialize Firebase in your project** (if not already done):
+   ```bash
+   firebase init hosting
+   ```
+   
+   Select these options:
+   - Public directory: `dist`
+   - Configure as single-page app: `Yes`
+   - Set up automatic builds and deploys with GitHub: `Optional`
+
+2. **Configure Firebase project**:
+   ```bash
+   firebase use --add
+   # Select your Firebase project and give it an alias
+   ```
+
+#### Deployment Process
+
+1. **Build the application**:
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to Firebase Hosting**:
+   ```bash
+   # Deploy to production
+   firebase deploy --only hosting
+   
+   # Deploy to preview channel (for testing)
+   firebase hosting:channel:deploy preview-branch-name
+   ```
+
+3. **Custom domain setup** (optional):
+   ```bash
+   firebase hosting:sites:create your-custom-domain
+   ```
+
+#### Firebase Configuration
+
+Your `firebase.json` is configured for SPA routing:
+```json
+{
+  "hosting": {
+    "public": "dist",
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ]
+  }
+}
+```
+
+#### Environment Variables
+
+Ensure all production environment variables are properly configured in your hosting environment:
+
+**Supabase Configuration:**
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+**Firebase Configuration:**
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+- `VITE_FIREBASE_MEASUREMENT_ID`
+
+#### GitHub Actions (Optional)
+
+For automated deployments, add this workflow to `.github/workflows/deploy.yml`:
+
+```yaml
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
+        
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: your-firebase-project-id
+```
+
+#### Useful Commands
+
+```bash
+# Preview locally before deploying
+firebase serve --only hosting
+
+# View deployment history
+firebase hosting:sites:list
+
+# Clone live site to local preview
+firebase hosting:clone SOURCE_SITE_ID:SOURCE_CHANNEL_ID TARGET_SITE_ID:TARGET_CHANNEL_ID
+
+# Delete a preview channel
+firebase hosting:channel:delete CHANNEL_ID
+```
 
 ## 📈 Development Roadmap
 
