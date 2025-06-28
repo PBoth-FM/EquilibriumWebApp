@@ -17,7 +17,6 @@ import TermsAndConditions from './pages/TermsAndConditions';
 // Components
 import ProtectedRoute from './components/ui/ProtectedRoute';
 import ScrollToTop from './components/ui/ScrollToTop';
-import FloatingBoltBadge from './components/ui/FloatingBoltBadge';
 
 function App() {
   const { initialize } = useAuthStore();
@@ -34,7 +33,6 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <FloatingBoltBadge />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<SignIn />} />
