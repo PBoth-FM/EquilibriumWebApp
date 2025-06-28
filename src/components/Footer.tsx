@@ -87,7 +87,7 @@ export default function Footer() {
                 <img
                   src="/BoltLogo_white_circle_360x360.png"
                   alt="Powered by Bolt.new"
-                  className="h-8 w-8"
+                  className="h-12 w-12"
                 />
               </a>
             </div>
@@ -117,7 +117,7 @@ export default function Footer() {
                 <img
                   src="/BoltLogo_white_circle_360x360.png"
                   alt="Powered by Bolt.new"
-                  className="h-7 w-7"
+                  className="h-11 w-11"
                 />
               </a>
             </div>
