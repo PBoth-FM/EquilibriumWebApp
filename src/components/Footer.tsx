@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './ui/Logo';
 
@@ -18,20 +18,18 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-4">
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/107569057"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-gradient-primary transition-colors"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-gradient-primary transition-colors"
+                aria-label="Follow us on LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
+                href="mailto:support@equilibrium.app"
                 className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-gradient-primary transition-colors"
+                aria-label="Email us"
               >
                 <Mail className="w-4 h-4" />
               </a>
