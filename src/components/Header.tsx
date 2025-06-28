@@ -61,12 +61,6 @@ export default function Header() {
         } else {
           return { action: () => handleCrossPageAnchor('how-it-works'), isProgrammatic: true };
         }
-      case 'testimonials':
-        if (currentPath === '/') {
-          return { href: '#testimonials', isAnchor: true };
-        } else {
-          return { action: () => handleCrossPageAnchor('testimonials'), isProgrammatic: true };
-        }
       default:
         return { href: target, isAnchor: true };
     }
@@ -147,12 +141,6 @@ export default function Header() {
                 >
                   Learn
                 </button>
-                <SmartNavLink
-                  target="testimonials"
-                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
-                >
-                  Reviews
-                </SmartNavLink>
                 <Link
                   to="/signin"
                   className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
@@ -242,13 +230,6 @@ export default function Header() {
                   >
                     Learn
                   </button>
-                  <SmartNavLink
-                    target="testimonials"
-                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1 text-left"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Reviews
-                  </SmartNavLink>
                   <Link
                     to="/signin"
                     onClick={() => setIsMenuOpen(false)}

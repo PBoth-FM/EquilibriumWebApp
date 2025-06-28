@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import ValuePropositions from '../components/ValuePropositions';
-import SocialProof from '../components/SocialProof';
 import Footer from '../components/Footer';
 
 export default function LandingPage() {
@@ -12,7 +11,6 @@ export default function LandingPage() {
       <main>
         <Hero />
         <ValuePropositions />
-        <SocialProof />
       </main>
       <Footer />
     </div>
