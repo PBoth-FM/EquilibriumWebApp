@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -34,17 +34,6 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
               </a>
             </div>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h4 className="font-semibold mb-4">Product</h4>
-            <ul className="space-y-3 text-neutral-400">
-              <li><a href="#" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Download</a></li>
-            </ul>
           </div>
 
           {/* Company */}
