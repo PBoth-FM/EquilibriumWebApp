@@ -51,11 +51,9 @@ export default function Hero() {
           <div className="mt-16 pt-8 border-t border-neutral-200">
             <p className="text-neutral-500 text-sm mb-6">Trusted by professionals at</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-40">
-              <div className="text-neutral-600 font-semibold">Google</div>
-              <div className="text-neutral-600 font-semibold">Apple</div>
-              <div className="text-neutral-600 font-semibold">Microsoft</div>
-              <div className="text-neutral-600 font-semibold">Meta</div>
               <div className="text-neutral-600 font-semibold">Stanford University</div>
+              <div className="text-neutral-600 font-semibold">Disagreeing Better</div>
+              <div className="text-neutral-600 font-semibold">OCBC</div>
             </div>
           </div>
         </div>
