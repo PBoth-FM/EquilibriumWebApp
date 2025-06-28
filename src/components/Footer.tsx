@@ -62,13 +62,65 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-neutral-400 text-sm mb-4 md:mb-0">
-            © 2025 Equilibrium. All rights reserved.
+        <div className="pt-8 border-t border-neutral-800">
+          {/* Desktop Layout */}
+          <div className="hidden md:flex justify-between items-center">
+            {/* Left side - Copyright and links */}
+            <div className="flex items-center space-x-6">
+              <div className="text-neutral-400 text-sm">
+                © 2025 Equilibrium. All rights reserved.
+              </div>
+              <div className="flex items-center space-x-6 text-neutral-400 text-sm">
+                <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+              </div>
+            </div>
+
+            {/* Right side - Bolt Badge */}
+            <div className="flex justify-end">
+              <a 
+                href="https://bolt.new/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="/BoltLogo_white_circle_360x360.png"
+                  alt="Powered by Bolt.new"
+                  className="h-12 w-12"
+                />
+              </a>
+            </div>
           </div>
-          <div className="flex items-center space-x-6 text-neutral-400 text-sm">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+
+          {/* Mobile Layout - Stacked */}
+          <div className="md:hidden space-y-4">
+            {/* Copyright */}
+            <div className="text-neutral-400 text-sm text-center">
+              © 2025 Equilibrium. All rights reserved.
+            </div>
+            
+            {/* Links */}
+            <div className="flex items-center justify-center space-x-6 text-neutral-400 text-sm">
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            </div>
+            
+            {/* Bolt Badge - Centered */}
+            <div className="flex justify-center">
+              <a 
+                href="https://bolt.new/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="/BoltLogo_white_circle_360x360.png"
+                  alt="Powered by Bolt.new"
+                  className="h-11 w-11"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
