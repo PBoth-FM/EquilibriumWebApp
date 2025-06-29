@@ -479,7 +479,7 @@ export default function Learn() {
                   Transform your stress response and unlock peak performance with scientifically-proven breath training.
                 </p>
                 <button className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-                  Open Apple Watch App
+                  Download from App Store
                 </button>
               </div>
             </div>
