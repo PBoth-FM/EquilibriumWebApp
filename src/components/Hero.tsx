@@ -25,7 +25,7 @@ export default function Hero() {
             Meditation that{' '}
             <span className="relative">
               works
-              <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-primary rounded-full"></div>
+              <div className="absolute left-0 right-0 h-1 bg-gradient-primary rounded-full" style={{ bottom: '-1px' }}></div>
             </span>{' '}
             for busy, analytical minds
           </h1>
