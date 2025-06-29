@@ -25,7 +25,7 @@ export default function Hero() {
             Meditation that{' '}
             <span className="relative">
               works
-              <div className="absolute top-full mt-1 left-0 right-0 h-1 bg-gradient-primary rounded-full"></div>
+              <div className="absolute top-full mt-3 left-0 right-0 h-1 bg-gradient-primary rounded-full"></div>
             </span>{' '}
             for busy, analytical minds
           </h1>
@@ -39,7 +39,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-slide-up delay-400">
             <button className="group bg-gradient-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center hover:shadow-xl transition-all duration-200 transform hover:scale-105">
               <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
-              Download on App Store
+              Download from App Store
             </button>
             
             <button className="text-neutral-700 border-2 border-neutral-200 px-8 py-4 rounded-full font-semibold text-lg hover:border-neutral-300 hover:bg-neutral-50 transition-all duration-200">
