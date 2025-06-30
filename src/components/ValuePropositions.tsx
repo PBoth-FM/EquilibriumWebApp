@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, Target, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const features = [
   {
@@ -71,9 +72,12 @@ export default function ValuePropositions() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <div>
-            <button className="bg-gradient-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+            <Link 
+              to="/coming-soon"
+              className="bg-gradient-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+            >
               Try Equilibrium Free
-            </button>
+            </Link>
           </div>
         </div>
       </div>

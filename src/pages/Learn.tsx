@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import { 
   Heart, 
   Brain, 
@@ -478,9 +479,12 @@ export default function Learn() {
                 <p className="text-white/90 mb-6 max-w-2xl mx-auto">
                   Transform your stress response and unlock peak performance with scientifically-proven breath training.
                 </p>
-                <button className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+                <Link 
+                  to="/coming-soon"
+                  className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+                >
                   Download from App Store
-                </button>
+                </Link>
               </div>
             </div>
           </section>
