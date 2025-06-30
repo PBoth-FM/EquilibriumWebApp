@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-import { Mail, CheckCircle, Bell } from 'lucide-react';
+import React from 'react';
+import { Bell } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { supabase } from '../lib/supabase';
 import { analytics } from '../lib/firebase';
 import { logEvent } from 'firebase/analytics';
 import appPreviewImage from '../assets/equilibrium_launching_soon (1).jpg';
 
 export default function ComingSoon() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
   React.useEffect(() => {
     // Track page view
     if (analytics) {
@@ -22,47 +16,6 @@ export default function ComingSoon() {
       });
     }
   }, []);
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email address');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setError(null);
-
-    try {
-      const { error: supabaseError } = await supabase
-        .from('email_signups')
-        .insert([{ email: email.toLowerCase().trim() }]);
-
-      if (supabaseError) {
-        if (supabaseError.code === '23505') { // Unique constraint violation
-          setError('This email is already signed up for notifications');
-        } else {
-          throw supabaseError;
-        }
-      } else {
-        setIsSubmitted(true);
-        setEmail('');
-        
-        // Track email signup
-        if (analytics) {
-          logEvent(analytics, 'email_signup', {
-            source: 'coming_soon_page'
-          });
-        }
-      }
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-      console.error('Email signup error:', err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -102,58 +55,15 @@ export default function ComingSoon() {
                 Breath training that works for busy, analytical minds. Get real-time feedback and build a practice that actually sticks.
               </p>
 
-              {/* Email Signup Form */}
+              {/* Coming Soon Message */}
               <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
                 <h3 className="text-2xl font-serif font-bold text-neutral-900 mb-4">
-                  Get notified when we launch
+                  Available Soon
                 </h3>
-                
-                {!isSubmitted ? (
-                  <form onSubmit={handleEmailSubmit} className="space-y-4">
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <div className="flex-1 relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-neutral-400" />
-                        </div>
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Enter your email address"
-                          className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-violet focus:border-transparent transition-colors"
-                          required
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="bg-gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none whitespace-nowrap"
-                      >
-                        {isSubmitting ? 'Signing up...' : 'Notify Me'}
-                      </button>
-                    </div>
-                    
-                    {error && (
-                      <p className="text-red-600 text-sm">{error}</p>
-                    )}
-                    
-                    <p className="text-neutral-500 text-sm">
-                      We'll only email you when the app is ready to download. No spam, ever.
-                    </p>
-                  </form>
-                ) : (
-                  <div className="text-center py-4">
-                    <div className="w-12 h-12 bg-primary-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-6 h-6 text-primary-green" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-neutral-900 mb-2">
-                      You're on the list!
-                    </h4>
-                    <p className="text-neutral-600">
-                      We'll notify you as soon as Equilibrium is available in the App Store.
-                    </p>
-                  </div>
-                )}
+                <p className="text-neutral-600 leading-relaxed">
+                  We're putting the finishing touches on Equilibrium and will be launching in the App Store soon. 
+                  Thank you for your interest in transforming your stress response through scientifically-proven breath training.
+                </p>
               </div>
             </div>
 
