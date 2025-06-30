@@ -184,22 +184,6 @@ export default function ComingSoon() {
               </div>
             </div>
           </div>
-
-          {/* Bottom CTA Section */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-primary p-8 rounded-3xl text-white">
-              <h3 className="text-2xl font-serif font-bold mb-4">
-                Be among the first to experience the future of meditation
-              </h3>
-              <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                Join thousands of professionals who are waiting to transform their stress response and unlock peak performance with real-time breath training.
-              </p>
-              <div className="inline-flex items-center px-6 py-3 bg-white/20 rounded-full text-white/90 font-medium">
-                <Bell className="w-4 h-4 mr-2" />
-                Launching Soon on iOS
-              </div>
-            </div>
-          </div>
         </div>
       </main>
 
