@@ -14,8 +14,6 @@ import Progress from './pages/Progress';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
-import ComingSoon from './pages/ComingSoon';
-import NotifyMe from './pages/NotifyMe';
 
 // Components
 import ProtectedRoute from './components/ui/ProtectedRoute';
@@ -47,8 +45,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="/notify-me" element={<NotifyMe />} />
         <Route 
           path="/dashboard" 
           element={

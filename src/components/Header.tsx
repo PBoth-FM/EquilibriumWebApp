@@ -148,7 +148,7 @@ export default function Header() {
                   Sign In
                 </Link>
                 <Link
-                  to="/coming-soon"
+                  to="/signup"
                   className="bg-gradient-primary text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105"
                 >
                   Get Started
@@ -238,7 +238,7 @@ export default function Header() {
                     Sign In
                   </Link>
                   <Link
-                    to="/coming-soon"
+                    to="/signup"
                     onClick={() => setIsMenuOpen(false)}
                     className="bg-gradient-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105 mx-2"
                   >

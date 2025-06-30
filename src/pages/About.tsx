@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 import { Heart, Users, Target, Mail, MapPin, Globe } from 'lucide-react';
 
 export default function About() {
@@ -198,12 +197,9 @@ export default function About() {
               <p className="text-white/90 mb-6 max-w-2xl mx-auto">
                 Join thousands of professionals who've discovered the power of real-time breath training.
               </p>
-              <Link 
-                to="/coming-soon"
-                className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105"
-              >
+              <button className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
                 Download Equilibrium
-              </Link>
+              </button>
             </div>
           </div>
         </div>
