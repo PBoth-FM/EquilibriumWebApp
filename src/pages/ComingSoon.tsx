@@ -61,8 +61,14 @@ export default function ComingSoon() {
                   Available Soon
                 </h3>
                 <p className="text-neutral-600 leading-relaxed">
-                  We're putting the finishing touches on Equilibrium and will be launching in the App Store soon. 
-                  Thank you for your interest in transforming your stress response through scientifically-proven breath training.
+                  We're putting the finishing touches on Equilibrium and will be launching in the App Store very soon. 
+                  To be notified when we launch, email{' '}
+                  <a 
+                    href="mailto:launch@equilibrium.app"
+                    className="text-primary-violet hover:text-primary-magenta transition-colors font-medium underline"
+                  >
+                    launch@equilibrium.app
+                  </a>
                 </p>
               </div>
             </div>
