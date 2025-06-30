@@ -98,25 +98,9 @@ export default function ComingSoon() {
                 </span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-neutral-600 mb-8 leading-relaxed">
+              <p className="text-xl sm:text-2xl text-neutral-600 mb-10 leading-relaxed">
                 Breath training that works for busy, analytical minds. Get real-time feedback and build a practice that actually sticks.
               </p>
-
-              {/* Value Propositions */}
-              <div className="space-y-4 mb-10">
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-5 h-5 text-primary-green mr-3 flex-shrink-0" />
-                  <span className="text-neutral-700">See your calm in real-time - no guesswork, just results</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-5 h-5 text-primary-green mr-3 flex-shrink-0" />
-                  <span className="text-neutral-700">Gamified with points and achievements</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-5 h-5 text-primary-green mr-3 flex-shrink-0" />
-                  <span className="text-neutral-700">Based on 30+ years of research</span>
-                </div>
-              </div>
 
               {/* Email Signup Form */}
               <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
