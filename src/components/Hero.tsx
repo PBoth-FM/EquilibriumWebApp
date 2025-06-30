@@ -1,7 +1,18 @@
 import React from 'react';
 import { Download } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const handleDownloadClick = () => {
+    navigate('/coming-soon');
+  };
+
+  const handleDemoClick = () => {
+    navigate('/coming-soon');
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
       {/* Subtle background decoration */}
@@ -37,12 +48,18 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-slide-up delay-400">
-            <button className="group bg-gradient-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+            <button 
+              onClick={handleDownloadClick}
+              className="group bg-gradient-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+            >
               <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
               Download from App Store
             </button>
             
-            <button className="text-neutral-700 border-2 border-neutral-200 px-8 py-4 rounded-full font-semibold text-lg hover:border-neutral-300 hover:bg-neutral-50 transition-all duration-200">
+            <button 
+              onClick={handleDemoClick}
+              className="text-neutral-700 border-2 border-neutral-200 px-8 py-4 rounded-full font-semibold text-lg hover:border-neutral-300 hover:bg-neutral-50 transition-all duration-200"
+            >
               Watch Demo
             </button>
           </div>

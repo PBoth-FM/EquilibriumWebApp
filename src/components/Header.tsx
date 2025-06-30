@@ -115,6 +115,11 @@ export default function Header() {
     }
   };
 
+  const handleGetStartedClick = () => {
+    navigate('/coming-soon');
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,12 +152,12 @@ export default function Header() {
                 >
                   Sign In
                 </Link>
-                <Link
-                  to="/signup"
+                <button
+                  onClick={handleGetStartedClick}
                   className="bg-gradient-primary text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105"
                 >
                   Get Started
-                </Link>
+                </button>
               </>
             ) : (
               // Authenticated user navigation
@@ -237,13 +242,12 @@ export default function Header() {
                   >
                     Sign In
                   </Link>
-                  <Link
-                    to="/signup"
-                    onClick={() => setIsMenuOpen(false)}
+                  <button
+                    onClick={handleGetStartedClick}
                     className="bg-gradient-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105 mx-2"
                   >
                     Get Started
-                  </Link>
+                  </button>
                 </>
               ) : (
                 // Authenticated user mobile navigation

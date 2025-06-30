@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuthStore } from '../store/authStore';
 import { useUserStats, useRecentSessions, useAchievements } from '../hooks/useUserData';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Zap, TrendingUp, Target, Calendar, Trophy, Play, Flame } from 'lucide-react';
@@ -39,9 +39,14 @@ function getAchievementIcon(iconName: string) {
 
 export default function Dashboard() {
   const { user } = useAuthStore();
+  const navigate = useNavigate();
   const { stats, loading: statsLoading, error: statsError } = useUserStats();
   const { sessions, loading: sessionsLoading, error: sessionsError } = useRecentSessions(3);
   const { achievements, loading: achievementsLoading } = useAchievements();
+
+  const handleStartSessionClick = () => {
+    navigate('/coming-soon');
+  };
 
   if (statsLoading) {
     return (
@@ -155,7 +160,10 @@ export default function Dashboard() {
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
               Open the Equilibrium app on your Apple Watch to start a new breath training session and continue building your streak.
             </p>
-            <button className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+            <button 
+              onClick={handleStartSessionClick}
+              className="bg-white text-neutral-900 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+            >
               Open App to Start Session
             </button>
           </div>

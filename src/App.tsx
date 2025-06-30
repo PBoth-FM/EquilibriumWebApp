@@ -5,6 +5,7 @@ import { analytics } from './lib/firebase';
 
 // Pages
 import LandingPage from './pages/LandingPage';
+import ComingSoon from './pages/ComingSoon';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ForgotPassword from './pages/ForgotPassword';
@@ -38,6 +39,7 @@ function App() {
       <FloatingBoltBadge />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
