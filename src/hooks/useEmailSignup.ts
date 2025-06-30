@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { useAuthStore } from '../store/authStore';
 
 export function useEmailSignup() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const { user } = useAuthStore();
 
   const submitEmail = async (email: string) => {
     try {
@@ -19,6 +21,9 @@ export function useEmailSignup() {
       if (insertError) {
         if (insertError.code === '23505') { // Unique constraint violation
           setError('This email is already registered for notifications.');
+        } else if (user) {
+          // If user is authenticated and getting an error, it's likely the RLS policy issue
+          setError("You're already a registered user!");
         } else {
           throw insertError;
         }
@@ -26,7 +31,12 @@ export function useEmailSignup() {
         setSuccess(true);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to sign up for notifications');
+      // Fallback error handling
+      if (user) {
+        setError("You're already a registered user!");
+      } else {
+        setError(err instanceof Error ? err.message : 'Failed to sign up for notifications');
+      }
     } finally {
       setLoading(false);
     }
