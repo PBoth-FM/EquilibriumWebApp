@@ -146,6 +146,12 @@ export default function Header() {
                 >
                   Learn
                 </button>
+                <Link
+                  to="/signin"
+                  className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors"
+                >
+                  Sign In
+                </Link>
                 <button
                   onClick={handleGetStartedClick}
                   className="bg-gradient-primary text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105"
@@ -229,6 +235,13 @@ export default function Header() {
                   >
                     Learn
                   </button>
+                  <Link
+                    to="/signin"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-neutral-600 hover:text-neutral-900 font-medium transition-colors px-2 py-1"
+                  >
+                    Sign In
+                  </Link>
                   <button
                     onClick={handleGetStartedClick}
                     className="bg-gradient-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105 mx-2"
